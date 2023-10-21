@@ -39,3 +39,9 @@ fun ByteArray.toUuid(): String {
 infix fun UShort.shr(i: Int): UShort {
     return (this.toInt() shr i).toUShort()
 }
+
+fun Long.toUint64Bytes(): ByteArray {
+    return ByteBuffer.allocate(Long.SIZE_BYTES)
+        .putLong(this)
+        .array()
+}
